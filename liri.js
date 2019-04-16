@@ -17,7 +17,7 @@ switch (type) {
 
     case "concert-this": // show upcoming concerts for artists using Bands in Town; if no results respond accordingly
 
-        var artist = process.argv[3];
+        var artist = process.argv.slice(3).join(" ");
 
         var queryURL = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"
 
@@ -39,7 +39,7 @@ switch (type) {
 
     case "spotify-this-song": // show details for any song using Spotify; if no song provided use "Ace of Base, The Sign"
 
-        var song = process.argv[3];
+        var song = process.argv.slice(3).join(" ");
 
         if (song) {
             spotify.search({ type: "track", query: song })
@@ -61,7 +61,7 @@ switch (type) {
 
     case "movie-this": // show details for any movie entered; if no movie provided use "Mr. Nobody"
 
-        var movie = process.argv[3];
+        var movie = process.argv.slice(3).join(" ");
 
         var queryURL = "http://www.omdbapi.com/?t=" + movie + "&plot=full&apikey=trilogy"
 
